@@ -1,1 +1,2 @@
 "creating a test file from terminal" 
+"a b c d" 
