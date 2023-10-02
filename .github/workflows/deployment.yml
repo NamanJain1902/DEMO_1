@@ -17,8 +17,6 @@ jobs:
           node-version: 18
       - name: List Directory
         run: ls -1
-      - name: Change Directory
-        run: cd react-app/
       - name: Print current Directory
         run: pwd
       - name: Install dependencies
@@ -37,10 +35,17 @@ jobs:
         with:
           node-version: 18
       - name: Change Directory
-        run: cd react-app
+        run: |
+          echo "Before cd"
+          pwd
+          cd react-app
+          echo "After cd"
+          pwd
       - name: Install dependencies
-        working-directory: ./react-app
-        run: npm install
+        # working-directory: ./react-app
+        run: |
+          cd ./react-app
+          npm install
       - name: Build project
         working-directory: ./react-app
         run: npm run build
