@@ -1,0 +1,17 @@
+name: Task 4 - 1 (Handle Deployment)
+on: 
+  issues:
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: "./04 Practice Project (Start)"
+
+jobs:
+  w1:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Output Event Details
+        run: echo "${{ toJSON(github.event) }}"
+      
