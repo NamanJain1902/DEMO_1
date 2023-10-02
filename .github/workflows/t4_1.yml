@@ -5,7 +5,7 @@ on:
 
 defaults:
   run:
-    working-directory: "./04 Practice Project (Start)"
+    working-directory: "./04\ Practice\ Project\ \(Start\)"
 
 jobs:
   w1:
@@ -13,5 +13,5 @@ jobs:
  
     steps:
       - name: Output Event Details
-        run: echo "${{ toJSON(github.event) }}"
+        run: echo "${{toJSON(github.event)}}"
       
