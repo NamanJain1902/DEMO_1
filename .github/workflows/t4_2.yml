@@ -1,4 +1,4 @@
-name: Task 4 - 2 (Handle Issues)
+name: Task 4 - 2 (Handle Deployment)
 on: 
   push:
     branches: [main]
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 18
       - name: Lint
-        run: npm lint
+        run: npm run lint
       - name: Test
         run: npm test
       - name: Build

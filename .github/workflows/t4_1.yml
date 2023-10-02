@@ -1,4 +1,4 @@
-name: Task 4 - 1 (Handle Deployment)
+name: Task 4 - 1 (Handle Issues)
 on: 
   issues:
   workflow_dispatch:
