@@ -10,7 +10,7 @@ jobs:
 
     steps:
 
-      - name: Print greetins
+      - name: Print greetings
         run: echo "Hello World!"
 
       - name: Print goodbye
