@@ -12,8 +12,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: List Directory
+        run: ls -1
       - name: Change Directory
-        run: cd react-app
+        run: cd react-app/
       - name: Print current Directory
         run: pwd
       - name: Install dependencies
