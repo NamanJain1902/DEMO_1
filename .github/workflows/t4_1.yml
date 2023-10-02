@@ -3,10 +3,6 @@ on:
   issues:
   workflow_dispatch:
 
-defaults:
-  run:
-    working-directory:  "./04PracticeProject(Start)"
-
 jobs:
   w1:
     runs-on: ubuntu-latest
