@@ -5,7 +5,7 @@ on:
 
 defaults:
   run:
-    working-directory: "./04\ Practice\ Project\ \(Start\)"
+    working-directory:  "./04PracticeProject(Start)"
 
 jobs:
   w1:
