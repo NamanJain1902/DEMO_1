@@ -1,4 +1,4 @@
-name: Second Workflow
+name: Job Output
 
 on: 
   push:
@@ -35,7 +35,7 @@ jobs:
         run: npm run build
       - name: Publish JS filename
         id: publish
-        run: find dist/assets/*.js -type -f -execdir echo 'outputname={}' >> $GITHUB_OUTPUT
+        run: find dist/assets/*.js -type f -execdir echo 'outputname={}' >> $GITHUB_OUTPUT
         # run: find dist/assets/*.js -type -f -execdir echo '::set-output name=somename::{}' ';'
       - name: Upload artificat
         uses: actions/upload-artifact@v3
