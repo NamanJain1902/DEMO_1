@@ -38,7 +38,7 @@ jobs:
         run: find dist/assets/*.js -type -f -execdir echo 'outputname={}' >> $GITHUB_OUTPUT
         # run: find dist/assets/*.js -type -f -execdir echo '::set-output name=somename::{}' ';'
       - name: Upload artificat
-        uses: action/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
             name: dist-files
             path: dist
