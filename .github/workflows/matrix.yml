@@ -1,11 +1,18 @@
 name: Matrix Demo
+
 on: push
+
+defaults:
+  run:
+    working-directory: "./04PracticeProject(Start)"
+
 jobs:
   build:
     strategy:
       matrix:
         node-version: [12, 14, 16, 18]
         operating-system: [ubuntu-latest, windows-latest]
+        
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Get Code
