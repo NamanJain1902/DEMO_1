@@ -1,0 +1,56 @@
+name: Second Workflow
+
+on: 
+  push:
+    branches: []
+    
+  workflow_dispatch:
+
+jobs:
+ 
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+        script-file: ${{ steps.publish.outputs.outputname }}
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Change Directory
+        run: |
+          echo "Before cd"
+          pwd
+          cd react-app
+          echo "After cd"
+          pwd
+      - name: Install dependencies
+        run: |
+          cd ./react-app
+          npm install
+      - name: Build project
+        working-directory: ./react-app
+        run: npm run build
+      - name: Publish JS filename
+        id: publish
+        run: find dist/assets/*.js -type -f -execdir echo 'outputname={}' >> $GITHUB_OUTPUT
+        # run: find dist/assets/*.js -type -f -execdir echo '::set-output name=somename::{}' ';'
+      - name: Upload artificat
+        uses: action/upload-artifact@v3
+        with:
+            name: dist-files
+            path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get build artificats
+        uses: actions/download-artifact@v3
+        with:
+            name: dist-files
+      - name: Output filename
+        run: echo "${{ needs.build.outputs.script-file }}"
+    
+      
