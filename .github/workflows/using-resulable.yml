@@ -3,6 +3,11 @@ on:
     push:
         branches:
             - main
+            
+defaults:
+    run:
+      working-directory: "./04PracticeProject(Start)"
+      
 jobs:
     lint:
         runs-on: ubuntu-latest
